@@ -1,7 +1,8 @@
-.global-stats-section {
+.home-section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 200px;
 }
 
 .section-title {
@@ -25,9 +26,9 @@
   background-color: #262728;
   padding: 20px;
   border-radius: 8px;
-  border: 2px solid #93fcec;
+  border: 2px solid #09eab4;
 
-  box-shadow: 5px 5px 5px  #09eab4;
+  box-shadow: 5px 5px 5px  #93fcec;
 }
 
 .stat-title {
@@ -57,3 +58,64 @@
   position: absolute;
   bottom: 0;
 }
+
+/* TOP 10 COINS */
+.coins-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.coin-display {
+  width: 350px;
+  background-color: #262728;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 6px 6px 6px  #93fcec;
+  transition: 200ms;
+}
+.coin-display:hover {
+  transform: scale(1.1);
+  border: 2px solid #09eab4;
+  box-shadow: 0px 0px;
+}
+
+.coin-img {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.coin-name {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.coin-symbol {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.coin-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.coin-price,
+.coin-market{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #93fcec;
+}
+
+.coin-price span,
+.coin-market span{
+  color: #FFFFFF;
+}
+
+.coin-link {
+  text-decoration-line: none;
+  color: #FFFFFF;
+  position: relative;
+}
+

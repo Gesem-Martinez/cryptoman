@@ -1,6 +1,6 @@
 import cryptoMan from "../assets/cryptoman.jpg";
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function NavBar() {
   const location = useLocation();
@@ -9,6 +9,10 @@ export default function NavBar() {
   const handleLinkClick = (path) => {
     setActiveLink(path);
   };
+
+  useEffect(() => {
+    setActiveLink(location.pathname);
+  }, [location]);
 
   return (
     <nav className="navbar">

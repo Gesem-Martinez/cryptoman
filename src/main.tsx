@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home.tsx";
 import Cryptos from "./components/Cryptos.tsx";
 import Dashboard from "./components/Dashboard.tsx";
+import CryptoInfo from "./components/CryptoInfo.tsx";
 import store from "./app/store.js";
 import { Provider } from "react-redux";
 
@@ -21,6 +22,16 @@ const router = createBrowserRouter([
       {
         path: "cryptos",
         element: <Cryptos />,
+        children: [
+          {
+            index: true,
+            element: <Cryptos />
+          },
+          {
+            path: ":cryptoSymbol",
+            element: <CryptoInfo />,
+          },
+        ],
       },
       {
         path: "dashboard",
