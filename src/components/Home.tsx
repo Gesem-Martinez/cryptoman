@@ -21,7 +21,12 @@ export default function Home() {
         </div>
       </div>
 
-      <Cryptocurrencies simplified />
+      <div className="home-section">
+        <Cryptocurrencies simplified />
+      </div>
+
+      <div className="home-section">
+      </div>
     </>
   );
 }
