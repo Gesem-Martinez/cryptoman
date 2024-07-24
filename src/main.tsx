@@ -7,6 +7,7 @@ import Home from "./components/Home.tsx";
 import Cryptos from "./components/Cryptos.tsx";
 import Dashboard from "./components/Dashboard.tsx";
 import CryptoInfo from "./components/CryptoInfo.tsx";
+import Cryptocurrencies from "./components/Cryptocurrencies.tsx";
 import store from "./app/store.js";
 import { Provider } from "react-redux";
 
@@ -25,10 +26,10 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Cryptos />
+            element: <Cryptocurrencies />
           },
           {
-            path: ":cryptoSymbol",
+            path: ":cryptoUUID",
             element: <CryptoInfo />,
           },
         ],

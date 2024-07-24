@@ -1,0 +1,12 @@
+.cryptos-container {
+}
+
+.coin-search {
+  margin-bottom: 80px;
+}
+.coins-container {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(5, 1fr);
+}
+

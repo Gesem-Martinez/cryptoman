@@ -33,7 +33,7 @@ export default function NavBar() {
           </Link>
           <Link
             to="/cryptos"
-            className={activeLink === "/cryptos" ? "active" : ""}
+            className={activeLink.startsWith("/cryptos") ? "active" : ""}
             onClick={() => handleLinkClick("/cryptos")}
           >
             Cryptos

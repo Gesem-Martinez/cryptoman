@@ -60,19 +60,17 @@
 }
 
 /* TOP 10 COINS */
-.coins-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
 
 .coin-display {
-  width: 350px;
   background-color: #262728;
   padding: 40px;
+  border-color: #121212;
   border-radius: 8px;
   box-shadow: 6px 6px 6px  #93fcec;
   transition: 200ms;
+  text-align: left;
+  width: 300px;
+  min-height: 600px;
 }
 .coin-display:hover {
   transform: scale(1.1);
@@ -81,18 +79,26 @@
 }
 
 .coin-img {
-  width: 100px;
+  width: 80px;
   margin: 0 auto;
 }
 
 .coin-name {
   font-size: 1.7rem;
   font-weight: 700;
+  color: #FFFFFF;
+  width: 180px;
+  text-wrap: wrap;
 }
 
 .coin-symbol {
   font-size: 1.3rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.coin-name,
+.coin-symbol{
+  text-align: center;
 }
 
 .coin-info {
