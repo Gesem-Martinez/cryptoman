@@ -2,6 +2,7 @@ import { useGetCryptosQuery } from "../services/cryptoApi";
 import "../styles/Home.css";
 import GlobalStatCard from "./GlobalStatCard";
 import Cryptocurrencies from "./Cryptocurrencies";
+import News from "./News";
 
 export default function Home() {
   const { data, isFetching } = useGetCryptosQuery(10);
@@ -26,6 +27,7 @@ export default function Home() {
       </div>
 
       <div className="home-section">
+        <News/>
       </div>
     </>
   );
