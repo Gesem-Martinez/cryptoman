@@ -46,7 +46,7 @@ export default function Cryptocurrencies({ simplified = false }) {
           coinsArr?.map((coin) => (
             <Link
               key={coin.uuid}
-              to={`cryptos/${coin.uuid}`}
+              to={`/cryptos/${coin.uuid}`}
               className="coin-link"
             >
               <Card

@@ -2,7 +2,8 @@
 }
 
 .coin-search {
-  margin-bottom: 80px;
+  margin: 0px auto 80px auto;
+  width: 500px;
 }
 .coins-container {
   display: grid;
