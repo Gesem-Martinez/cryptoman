@@ -23,12 +23,12 @@ export const cryptoNewsApi = createApi({
   endpoints: (builder) => ({
     getCryptoNews: builder.query({
       query: ({ newsCategory, count }) => ({
-        url: '/search',
-          params: {
+        url: "/search",
+        params: {
           query: newsCategory,
-            limit: count,
-          }
-      })
+          limit: count,
+        },
+      }),
     }),
   }),
 });

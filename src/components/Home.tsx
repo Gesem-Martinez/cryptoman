@@ -3,6 +3,7 @@ import "../styles/Home.css";
 import GlobalStatCard from "./GlobalStatCard";
 import Cryptocurrencies from "./Cryptocurrencies";
 import News from "./News";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const { data, isFetching } = useGetCryptosQuery(10);
@@ -27,7 +28,8 @@ export default function Home() {
       </div>
 
       <div className="home-section">
-        <News/>
+        <News simplified/>
+        <Link to="news">Show more</Link>
       </div>
     </>
   );

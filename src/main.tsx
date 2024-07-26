@@ -10,6 +10,7 @@ import CryptoInfo from "./components/CryptoInfo.tsx";
 import Cryptocurrencies from "./components/Cryptocurrencies.tsx";
 import store from "./app/store.js";
 import { Provider } from "react-redux";
+import News from "./components/News.tsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             element: <CryptoInfo />,
           },
         ],
+      },
+      {
+        path: "news",
+        element: <News />,
       },
       {
         path: "dashboard",

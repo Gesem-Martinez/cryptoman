@@ -19,8 +19,6 @@ export default function Cryptocurrencies({ simplified = false }) {
     setCoinsArr(filteredData);
   }, [cryptosList, searchTerm]);
 
-  if (isFetching) return "Loading...";
-
   return (
     <div className="cryptos-container">
       {simplified ? (
@@ -39,42 +37,48 @@ export default function Cryptocurrencies({ simplified = false }) {
         </div>
       )}
 
-      <div
-        className={`coins-container ${simplified ? "coins-container-simple" : "coins-container-large"}`}
-      >
-        {coinsArr &&
-          coinsArr?.map((coin) => (
-            <Link
-              key={coin.uuid}
-              to={`/cryptos/${coin.uuid}`}
-              className="coin-link"
-            >
-              <Card
-                bordered
-                className="coin-display"
-                cover={<img className="coin-img" src={coin?.iconUrl} alt="" />}
+      {isFetching ? (
+        <p>Loading...</p>
+      ) : (
+        <div
+          className={`coins-container ${simplified ? "coins-container-simple" : "coins-container-large"}`}
+        >
+          {coinsArr &&
+            coinsArr?.map((coin) => (
+              <Link
+                key={coin.uuid}
+                to={`/cryptos/${coin.uuid}`}
+                className="coin-link"
               >
-                <Card.Meta
-                  title={
-                    <>
-                      <div className="coin-name">{coin.name}</div>
-                      <p className="coin-symbol">{coin.symbol}</p>
-                    </>
+                <Card
+                  bordered
+                  className="coin-display"
+                  cover={
+                    <img className="coin-img" src={coin?.iconUrl} alt="" />
                   }
-                />
-                <p className="coin-price">
-                  Rank: <span>{coin.rank}</span>
-                </p>
-                <p className="coin-price">
-                  Price: <span>${millify(coin.price)}</span>
-                </p>
-                <p className="coin-market">
-                  Market Cap: <span>${millify(coin.marketCap)}</span>
-                </p>
-              </Card>
-            </Link>
-          ))}
-      </div>
+                >
+                  <Card.Meta
+                    title={
+                      <>
+                        <div className="coin-name">{coin.name}</div>
+                        <p className="coin-symbol">{coin.symbol}</p>
+                      </>
+                    }
+                  />
+                  <p className="coin-price">
+                    Rank: <span>{coin.rank}</span>
+                  </p>
+                  <p className="coin-price">
+                    Price: <span>${millify(coin.price)}</span>
+                  </p>
+                  <p className="coin-market">
+                    Market Cap: <span>${millify(coin.marketCap)}</span>
+                  </p>
+                </Card>
+              </Link>
+            ))}
+        </div>
+      )}
     </div>
   );
 }
