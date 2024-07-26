@@ -67,7 +67,7 @@ export default function CryptoInfo() {
     },
     {
       title: "Approved Supply",
-      value: cryptoDetails.approvedSupply ? (
+      value: cryptoDetails.supply.confirmed ? (
         <CheckOutlined />
       ) : (
         <StopOutlined />
@@ -76,12 +76,12 @@ export default function CryptoInfo() {
     },
     {
       title: "Total Supply",
-      value: `$ ${millify(cryptoDetails.totalSupply)}`,
+      value: `$ ${millify(cryptoDetails.supply.total)}`,
       icon: <ExclamationCircleOutlined />,
     },
     {
       title: "Circulating Supply",
-      value: `$ ${millify(cryptoDetails.circulatingSupply)}`,
+      value: `$ ${millify(cryptoDetails.supply.circulating)}`,
       icon: <ExclamationCircleOutlined />,
     },
   ];
@@ -107,6 +107,69 @@ export default function CryptoInfo() {
           {time.map((period) => <Option key={period}>{period}</Option>)}
         </Select>
         {/* line chart */}
+        <Col className="stats-container">
+          <Col className="coin-value-statistics">
+            <Col className="coin-value-statistics-heading">
+              <Title level={3} className="coin-details-heading">
+                {cryptoDetails.name} Value Statistics
+              </Title>
+              <p>
+                An overview showing the statistics of {cryptoDetails.name}
+              </p>
+            </Col>
+            {stats.map(({ icon, title, value }) => (
+              <Col className="coin-stats">
+                <Col className="coin-stats-name">
+                  <Text>{icon}</Text>
+                  <Text>{title}</Text>
+                </Col>
+                <Text className="stats">{value}</Text>
+              </Col>
+            ))}
+          </Col>
+          <Col className="other-stats-info">
+            <Col className="coin-value-statistics-heading">
+              <Title level={3} className="coin-details-heading">
+                Other Statistics
+              </Title>
+            </Col>
+            {genericStats.map(({ icon, title, value }) => (
+              <Col className="coin-stats">
+                <Col className="coin-stats-name">
+                  <Text>{icon}</Text>
+                  <Text>{title}</Text>
+                </Col>
+                <Text className="stats">{value}</Text>
+              </Col>
+            ))}
+          </Col>
+        </Col>
+        <Col className="coin-desc-link">
+          <Row className="coin-desc">
+            <Title level={3} className="coin-details-heading">
+              What is {cryptoDetails.name}?
+            </Title>
+            <Text>
+              {cryptoDetails.description}
+            </Text>
+          </Row>
+          <Col className="coin-links">
+            <Title level={3} className="coin-details-heading">
+              {cryptoDetails.name} Links
+            </Title>
+            {cryptoDetails.links.map((link) => (
+              <Row className="coin-link" key={link.name}>
+                <Title level={5} className="link-name">
+                  {link.type[0].toUpperCase() + link.type.slice(1)}
+                </Title>
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  {link.name}
+                </a>
+
+              </Row>
+            ))}
+          </Col>
+        </Col>
       </Col>
     </ConfigProvider>
   );
