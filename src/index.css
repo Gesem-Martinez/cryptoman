@@ -5,12 +5,18 @@
   font-size: 16px;
 
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: var(--dark-gray);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --dark-gray: #121212;
+  --teal: #09eab4;
+  --light-blue: #93fcec;
+  --midnight-blue: #2c2443;
+  --gray: #7a7985;
 
 }
 

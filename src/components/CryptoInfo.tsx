@@ -2,7 +2,10 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import HTMLReactParser from "html-react-parser/lib/index";
 import millify from "millify";
-import { useGetCryptoDetailsQuery } from "../services/cryptoApi";
+import {
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} from "../services/cryptoApi";
 import { Col, Row, Typography, Select, ConfigProvider, theme } from "antd";
 import {
   MoneyCollectOutlined,
@@ -15,6 +18,12 @@ import {
   ThunderboltOutlined,
   CheckOutlined,
 } from "@ant-design/icons";
+import "../styles/CryptoInfo.css";
+import Chart from "chart.js/auto"
+import { CategoryScale } from "chart.js";
+import LineChart from "./LineChart";
+
+Chart.register(CategoryScale);
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -25,6 +34,11 @@ export default function CryptoInfo() {
   const [timePeriod, setTimePeriod] = useState("7d");
   const { data, isFetching } = useGetCryptoDetailsQuery(cryptoUUID);
   const cryptoDetails = data?.data?.coin;
+
+  const { data: coinHistory } = useGetCryptoHistoryQuery({
+    coinId: cryptoUUID,
+    timePeriod,
+  });
 
   if (isFetching) return "Loading...";
 
@@ -104,18 +118,22 @@ export default function CryptoInfo() {
           placeholder="Select Time Period"
           onChange={(value) => setTimePeriod(value)}
         >
-          {time.map((period) => <Option key={period}>{period}</Option>)}
+          {time.map((period) => (
+            <Option key={period}>{period}</Option>
+          ))}
         </Select>
-        {/* line chart */}
+        <LineChart
+          coinHistory={coinHistory}
+          currentPrice={millify(cryptoDetails.price)}
+          coinName={cryptoDetails.name}
+        />
         <Col className="stats-container">
           <Col className="coin-value-statistics">
             <Col className="coin-value-statistics-heading">
               <Title level={3} className="coin-details-heading">
                 {cryptoDetails.name} Value Statistics
               </Title>
-              <p>
-                An overview showing the statistics of {cryptoDetails.name}
-              </p>
+              <p>An overview showing the statistics of {cryptoDetails.name}</p>
             </Col>
             {stats.map(({ icon, title, value }) => (
               <Col className="coin-stats">
@@ -145,14 +163,12 @@ export default function CryptoInfo() {
           </Col>
         </Col>
         <Col className="coin-desc-link">
-          <Row className="coin-desc">
+          <Col className="coin-desc">
             <Title level={3} className="coin-details-heading">
               What is {cryptoDetails.name}?
             </Title>
-            <Text>
-              {cryptoDetails.description}
-            </Text>
-          </Row>
+            <Text>{cryptoDetails.description}</Text>
+          </Col>
           <Col className="coin-links">
             <Title level={3} className="coin-details-heading">
               {cryptoDetails.name} Links
@@ -165,7 +181,6 @@ export default function CryptoInfo() {
                 <a href={link.url} target="_blank" rel="noreferrer">
                   {link.name}
                 </a>
-
               </Row>
             ))}
           </Col>
