@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import HTMLReactParser from "html-react-parser/lib/index";
 import millify from "millify";
 import {
   useGetCryptoDetailsQuery,
@@ -173,7 +172,7 @@ export default function CryptoInfo() {
             <Title level={3} className="coin-details-heading">
               {cryptoDetails.name} Links
             </Title>
-            {cryptoDetails.links.map((link) => (
+            {cryptoDetails.links.map((link: any) => (
               <Row className="coin-link" key={link.name}>
                 <Title level={5} className="link-name">
                   {link.type[0].toUpperCase() + link.type.slice(1)}
