@@ -1,13 +1,75 @@
-.cryptos-container {
-}
-
 .coin-search {
   margin: 0px auto 80px auto;
   width: 500px;
 }
+
 .coins-container {
   display: grid;
   gap: 40px;
   grid-template-columns: repeat(5, 1fr);
 }
 
+.coin-display {
+  background-color: #262728;
+  padding: 40px;
+  border-color: #121212;
+  border-radius: 8px;
+  box-shadow: 6px 6px 6px #93fcec;
+  transition: 200ms;
+  text-align: left;
+  width: 300px;
+  min-height: 600px;
+}
+
+.coin-display:hover {
+  transform: scale(1.1);
+  border: 2px solid #09eab4;
+  box-shadow: 0px 0px;
+}
+
+.coin-img {
+  width: 80px;
+  margin: 0 auto;
+}
+
+.coin-name {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  width: 180px;
+  text-wrap: wrap;
+}
+
+.coin-symbol {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.coin-name,
+.coin-symbol {
+  text-align: center;
+}
+
+.coin-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.coin-price,
+.coin-market {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #93fcec;
+}
+
+.coin-price span,
+.coin-market span {
+  color: #ffffff;
+}
+
+.coin-link {
+  text-decoration-line: none;
+  color: #ffffff;
+  position: relative;
+}

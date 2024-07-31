@@ -1,6 +1,7 @@
 import cryptoMan from "../assets/cryptoman.jpg";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import "../styles/NavBar.css"
 
 export default function NavBar() {
   const location = useLocation();
@@ -45,19 +46,6 @@ export default function NavBar() {
           >
             News
           </Link>
-          <Link
-            to="/dashboard"
-            className={activeLink === "/dashboard" ? "active" : ""}
-            onClick={() => handleLinkClick("/dashboard")}
-          >
-            Dashboard
-          </Link>
-        </div>
-        <div className="nav-profile">
-          <p>Username</p>
-          <div className="profile-img">
-            <img src={cryptoMan} alt="" />
-          </div>
         </div>
       </div>
     </nav>

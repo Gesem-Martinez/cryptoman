@@ -1,4 +1,5 @@
 import millify from "millify";
+import "../styles/GlobalStatsCard.css";
 
 export default function GlobalStatCard({ title, isFetching, value, large=false }) {
   return (

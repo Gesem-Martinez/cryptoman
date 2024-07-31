@@ -1,0 +1,39 @@
+.stat-cell-container {
+  transition: 200ms;
+  width: 300px;
+  background-color: #262728;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #09eab4;
+
+  box-shadow: 5px 5px 5px  #93fcec;
+}
+
+.stat-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.stat-title span {
+  color: #93fcec;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+
+  position: relative;
+}
+
+.stat-value::before{
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: #93fcec;
+
+  position: absolute;
+  bottom: 0;
+}
+
