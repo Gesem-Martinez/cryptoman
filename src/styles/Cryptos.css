@@ -1,16 +1,16 @@
 .coin-search {
   margin: 0px auto 80px auto;
-  width: 500px;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 .coins-container {
   max-width: 1660px;
   display: grid;
   gap: 40px;
-  transition: 200ms;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .coins-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -96,5 +96,4 @@
 .coin-link {
   text-decoration-line: none;
   color: #ffffff;
-  position: relative;
 }
