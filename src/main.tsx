@@ -5,7 +5,6 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home.tsx";
 import Cryptos from "./components/Cryptos.tsx";
-import Dashboard from "./components/Dashboard.tsx";
 import CryptoInfo from "./components/CryptoInfo.tsx";
 import Cryptocurrencies from "./components/Cryptocurrencies.tsx";
 import store from "./app/store.js";
@@ -38,10 +37,6 @@ const router = createBrowserRouter([
       {
         path: "news",
         element: <News />,
-      },
-      {
-        path: "dashboard",
-        element: <Dashboard />,
       },
     ],
   },
