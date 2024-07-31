@@ -4,9 +4,34 @@
 }
 
 .coins-container {
+  max-width: 1660px;
   display: grid;
   gap: 40px;
-  grid-template-columns: repeat(5, 1fr);
+  transition: 200ms;
+}
+
+@media (min-width: 600px) {
+  .coins-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px){
+  .coins-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .coins-container {
+    grid-template-columns: repeat(4,  1fr);
+  }
+}
+
+@media (min-width: 1700px) {
+  .coins-container {
+    grid-template-columns: repeat(5,  1fr);
+  }
 }
 
 .coin-display {

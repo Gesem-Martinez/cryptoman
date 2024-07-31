@@ -1,0 +1,15 @@
+.chart-header {
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+}
+
+.price-change {
+  color: red;
+}
+
