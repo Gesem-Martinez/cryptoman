@@ -1,6 +1,7 @@
 .chart-header {
   align-items: baseline;
   justify-content: space-between;
+  margin: 20px 0;
 }
 
 .price-container {

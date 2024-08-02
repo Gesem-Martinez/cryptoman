@@ -6,6 +6,8 @@ import "../styles/NavBar.css"
 export default function NavBar() {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.pathname);
+  const [activeMenu, setActiveMenu] = useState(true);
+  const [screenSize, setScreenSize] = useState(null);
 
   const handleLinkClick = (path: string) => {
     setActiveLink(path);
@@ -14,6 +16,24 @@ export default function NavBar() {
   useEffect(() => {
     setActiveLink(location.pathname);
   }, [location]);
+
+  const handleResize = () => {
+    setScreenSize(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [])
+
+  useEffect(() => {
+    if(screenSize < 768){
+      setActiveMenu(false);
+    }
+  }, [screenSize])
 
   return (
     <nav className="navbar">

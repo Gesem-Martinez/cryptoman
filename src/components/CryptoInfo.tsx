@@ -21,8 +21,10 @@ import "../styles/CryptoInfo.css";
 import Chart from "chart.js/auto"
 import { CategoryScale } from "chart.js";
 import LineChart from "./LineChart";
+import zoomPlugin from "chartjs-plugin-zoom";
 
 Chart.register(CategoryScale);
+Chart.register(zoomPlugin);
 
 const { Title, Text } = Typography;
 const { Option } = Select;

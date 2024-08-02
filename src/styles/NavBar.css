@@ -25,12 +25,6 @@
   background-color: var(--midnight-blue);
 }
 
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 50px;
-}
-
 .nav-links a {
   position: relative;
   margin-right: 50px;

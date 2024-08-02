@@ -1,6 +1,9 @@
 import { Line } from "react-chartjs-2";
 import { Col, Row, Typography } from "antd";
 import "../styles/LineChart.css";
+import moment from "moment";
+import { plugins } from "chart.js";
+import { zoom } from "chartjs-plugin-zoom";
 
 const { Title } = Typography;
 
@@ -11,7 +14,7 @@ export default function LineChart({ coinHistory, coinName, currentPrice }) {
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinPrice.push(coinHistory.data.history[i].price);
     coinTimestamp.push(
-      new Date(coinHistory.data.history[i].timestamp * 1000).toLocaleString(),
+      new Date(coinHistory.data.history[i].timestamp * 1000).toLocaleDateString(),
     );
   }
 
@@ -34,6 +37,28 @@ export default function LineChart({ coinHistory, coinName, currentPrice }) {
         sugestedMin: 0,
       },
     },
+    responsive: true,
+    plugins: {
+      zoom: {
+        limits: {
+          y: {min: 'original', max: 'original'},
+          y2: {min: 'original', max: 'original'},
+        },
+        zoom: {
+          wheel: {
+            enabled: true,
+            modifierKey: 'alt',
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: 'xy',
+          drag: {
+            enabled: true,
+          }
+        }
+      }
+    }
   };
 
   return (
